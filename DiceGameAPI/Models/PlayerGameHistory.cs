@@ -3,7 +3,7 @@
     public class PlayerGameHistory
     {
         public int IdPlayer { get; set; }
-        public int IdGamme { get; set; }
+        public int IdGame { get; set; }
         public int IdPointsTable { get; set; }
         public bool Won { get; set; }
 
