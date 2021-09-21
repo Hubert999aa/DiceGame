@@ -15,19 +15,48 @@ namespace DiceGameAPI.Service
 
         public int CreateNewPlayer(string name)
         {
-            throw new NotImplementedException();
+            Player newPlayer = new Player
+            {
+                Name = name
+            };
+
+            _context.Players.Add(newPlayer);
+            _context.SaveChanges();
+
+            return newPlayer.IdPlayer;
         }
         public int CreateNewGame()
         {
-            throw new NotImplementedException();
+            Game newGame = new Game
+            {
+                PlayDate = DateTime.Now,
+                Finished = false
+            };
+
+            _context.Games.Add(newGame);
+            _context.SaveChanges();
+
+            return newGame.IdGame;
         }
         public int CreateNewPointsTable(int playerId, int gameId)
         {
-            throw new NotImplementedException();
+            PointsTable newPointsTable = new PointsTable();
+
+            _context.PointsTables.Add(newPointsTable);
+            _context.SaveChanges();
+
+            return newPointsTable.IdPointsTable;
         }
         public void CreatePlayerGameHistory(int playerId, int gameId)
         {
-            throw new NotImplementedException();
+            PlayerGameHistory newGameHistory = new PlayerGameHistory
+            {
+                IdGame = gameId,
+                IdPlayer = playerId
+            };
+
+            _context.PlayerGameHistories.Add(newGameHistory);
+            _context.SaveChanges();
         }
 
         public int ChangePlayerName(int playerId)
