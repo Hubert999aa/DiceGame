@@ -7,6 +7,7 @@ namespace DiceGameAPI.Models
     {
         public int IdGame { get; set; }
         public DateTime PlayDate { get; set; }
+        public bool Finished { get; set; }
 
         public List<PlayerGameHistory> PlayerGameHistory { get; set; }
     }
