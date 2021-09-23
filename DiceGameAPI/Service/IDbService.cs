@@ -9,7 +9,7 @@ namespace DiceGameAPI.Service
         public int CreateNewPointsTable(int playerId, int gameId);
         public void CreatePlayerGameHistory(int playerId, int gameId);
 
-        public int ChangePlayerName(int playerId);
+        public int ChangePlayerName(int playerId, string newName);
 
         public Player GetPlayer(int playerId);
         public Game GetGame(int gameId);
@@ -21,8 +21,6 @@ namespace DiceGameAPI.Service
         public void AddPointsToTable(int pointsTableId, int points, string field);
         public void ChangePoints(int pointsTableId, int oldValue, int newValue, string field);
 
-        public void FinishGame(int gameId);
-        public void SetWinner(int playerId);
-        public void SetLooser(int playerId);
+        public void FinishGame(int gameId, int firstPlayerId, int secondPlayerId);
     }
 }

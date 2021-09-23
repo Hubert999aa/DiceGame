@@ -4,14 +4,16 @@ using DiceGameAPI.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DiceGameAPI.Migrations
 {
     [DbContext(typeof(ModelContext))]
-    partial class ModelContextModelSnapshot : ModelSnapshot
+    [Migration("20210923192818_ChangeWonPropOnGameResult")]
+    partial class ChangeWonPropOnGameResult
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -62,7 +64,7 @@ namespace DiceGameAPI.Migrations
                     b.Property<int>("IdGame")
                         .HasColumnType("int");
 
-                    b.Property<int?>("GameResult")
+                    b.Property<int>("GameResult")
                         .HasColumnType("int");
 
                     b.Property<int>("IdPointsTable")

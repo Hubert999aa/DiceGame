@@ -52,6 +52,9 @@ namespace DiceGameAPI.Models
                    .WithMany(p => p.PlayerGameHistory)
                    .HasForeignKey(p => p.IdGame);
 
+                opt.Property(p => p.GameResult)
+                   .HasConversion<int>();
+
                 opt.HasOne(p => p.PointsTable)
                    .WithOne(p => p.PlayerGameHistory)
                    .HasForeignKey<PlayerGameHistory>(p => p.IdPointsTable);
