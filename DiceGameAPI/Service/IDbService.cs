@@ -1,4 +1,5 @@
 ﻿using DiceGameAPI.Models;
+using System.Collections.Generic;
 
 namespace DiceGameAPI.Service
 {
@@ -15,6 +16,9 @@ namespace DiceGameAPI.Service
         public Game GetGame(int gameId);
         public PointsTable GetPointsTable(int pointsTableId);
         public PlayerGameHistory GetPlayerGameHistory(int playerId, int gameId);
+
+        public List<Player> GetAllPlayers();
+        public List<PlayerGameHistory> GetAllPlayerHistory(int playerId);
 
         public int GetSummaryPointsFromSchool(int pointsTableId);
         public int GetAllPoints(int pointsTableId);

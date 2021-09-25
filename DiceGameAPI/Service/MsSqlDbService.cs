@@ -3,6 +3,7 @@ using System.Linq;
 using DiceGameAPI.Models;
 using Microsoft.EntityFrameworkCore;
 using DiceGameAPI.Enumerators;
+using System.Collections.Generic;
 
 namespace DiceGameAPI.Service
 {
@@ -105,6 +106,18 @@ namespace DiceGameAPI.Service
                                   .Single();
 
             return history;
+        }
+
+        public List<Player> GetAllPlayers()
+        {
+            return _context.Players
+                           .ToList();
+        }
+        public List<PlayerGameHistory> GetAllPlayerHistory(int playerId)
+        {
+            return _context.PlayerGameHistories
+                           .Where(p => p.IdPlayer == playerId)
+                           .ToList();
         }
 
         public void AddPointsToTable(int pointsTableId, int points, string field)
