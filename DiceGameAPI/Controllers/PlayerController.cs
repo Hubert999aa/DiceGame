@@ -5,7 +5,7 @@ using System;
 
 namespace DiceGameAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class PlayerController : ControllerBase
     {
@@ -21,7 +21,7 @@ namespace DiceGameAPI.Controllers
             var players = _service.GetAllPlayers();
             return Ok(players);
         }
-        
+
         [HttpGet]
         public IActionResult GetPlayer(int id)
         {
