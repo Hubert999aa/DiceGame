@@ -63,9 +63,7 @@ namespace DiceGameAPI.Service
 
         public int ChangePlayerName(int playerId, string newName)
         {
-            var player = _context.Players
-                                 .Where(p => p.IdPlayer == playerId)
-                                 .Single();
+            var player = GetPlayer(playerId);
 
             player.Name = newName;
 
@@ -77,8 +75,8 @@ namespace DiceGameAPI.Service
         public Player GetPlayer(int playerId)
         {
             var player = _context.Players
-                                 .Where(p => p.IdPlayer == playerId)
-                                 .Single();
+                                    .Where(p => p.IdPlayer == playerId)
+                                    .Single();
 
             return player;
         }
